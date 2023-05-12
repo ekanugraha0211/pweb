@@ -3,7 +3,19 @@
 
 function koneksi()
 {
-  return mysqli_connect('', 'root', '', 'uas212410102074');
+    $host = 'containers-us-west-93.railway.app';
+    $port = '7167'; // port default MySQL
+    $database = 'railway';
+    $username = 'postgres';
+    $password = 'gwgJuVmiON4riFA1Gs1I'; // ganti dengan password MySQL Anda
+
+    $conn = mysqli_connect($host, $username, $password, $database, $port);
+
+    if (!$conn) {
+        die('Koneksi gagal: ' . mysqli_connect_error());
+    }
+
+    return $conn;
 }
 
 
